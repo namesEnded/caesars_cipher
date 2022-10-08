@@ -17,10 +17,7 @@ public class Caesars_cipher
 //        return -1;
 //    }
 
-    public static void setKey(int keyValue)
-    {
-        key = keyValue;
-    }
+    public static void setKey(int keyValue) { key = keyValue; }
 
     public static char checkBoundaries(char selectedChar)
     {
@@ -34,19 +31,20 @@ public class Caesars_cipher
 
     public static char offsetCharUnicode(Integer numberOfChars, Integer codeOfAChar, char character)
     {
+        int localKey = Math.abs(key);
         int originalPos = character - codeOfAChar;
-        int newPos = (originalPos + key) % numberOfChars;
+        int newPos = (key > 0) ? ((originalPos + localKey) % numberOfChars) :
+                ((originalPos + (numberOfChars - (localKey % numberOfChars))) % numberOfChars);
         return ((char) (codeOfAChar + newPos));
     }
 
     public static char offsetCharArray(char character)
     {
+        int localKey = Math.abs(key);
         char lowerChar = Character.toLowerCase(character);
         int originalPos = cyrillicAlphabetString.indexOf(lowerChar);
-        //int originalPos = searchWord(lowerChar);
-        //int originalPos = Arrays.binarySearch(cyrillicAlphabet, lowerChar);
-        int newPos = (originalPos + key) % cyrillicAlphabetString.length();
-        // return cyrillicAlphabet[newPos];
+        int newPos = (key > 0 ) ? ((originalPos + localKey ) % cyrillicAlphabetString.length()) :
+                ((originalPos + (cyrillicAlphabetString.length() - (localKey % cyrillicAlphabetString.length()))) % cyrillicAlphabetString.length());
         return cyrillicAlphabetString.charAt(newPos);
     }
 

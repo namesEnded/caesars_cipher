@@ -2,37 +2,119 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.labOne.Controller">
-   <children>
-      <Text layoutX="140.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caesar 's cipher" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="139.8079833984375">
-         <font>
-            <Font name="Ubuntu Light" size="61.0" />
-         </font>
-      </Text>
-      <Text layoutX="116.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="input text " AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="481.3160095214844" AnchorPane.topAnchor="163.0">
-         <font>
-            <Font name="Ubuntu Light" size="22.0" />
-         </font>
-      </Text>
-      <TextField fx:id="inputField" layoutX="117.0" layoutY="198.0" prefHeight="25.0" prefWidth="399.0" AnchorPane.leftAnchor="117.0" AnchorPane.topAnchor="198.0" />
-      <Button fx:id="startBtn" layoutX="533.0" layoutY="199.0" mnemonicParsing="false" text="Start" AnchorPane.leftAnchor="533.0" AnchorPane.rightAnchor="116.0" AnchorPane.topAnchor="199.0" />
-      <TextArea fx:id="outputField" layoutX="116.0" layoutY="279.0" prefHeight="200.0" prefWidth="467.0" />
-      <Text layoutX="117.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="output text">
-         <font>
-            <Font name="Ubuntu Light" size="22.0" />
-         </font>
-      </Text>
-      <Text layoutX="470.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="key">
-         <font>
-            <Font name="Ubuntu Light" size="22.0" />
-         </font>
-      </Text>
-      <Spinner fx:id="keySpinner" layoutX="516.0" layoutY="244.0" prefHeight="24.0" prefWidth="67.0" />
-   </children>
-</AnchorPane>
+<TabPane prefHeight="875.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.labOne.Controller">
+   <tabs>
+      <Tab closable="false" text="Encryption">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1042.0">
+               <children>
+                  <Text layoutX="311.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caesar 's cipher" AnchorPane.leftAnchor="311.0" AnchorPane.rightAnchor="311.8079833984375">
+                     <font>
+                        <Font name="Ubuntu Light" size="61.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="287.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="input text " AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="653.3160095214844" AnchorPane.topAnchor="260.496000289917">
+                     <font>
+                        <Font name="Ubuntu Light" size="22.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="inputField" layoutX="288.0" layoutY="295.0" prefHeight="25.0" prefWidth="399.0" AnchorPane.leftAnchor="288.0" AnchorPane.topAnchor="295.0" />
+                  <Button fx:id="startBtn" layoutX="704.0" layoutY="296.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="51.0" text="Start" AnchorPane.leftAnchor="704.0" AnchorPane.rightAnchor="287.0" AnchorPane.topAnchor="296.0" />
+                  <TextArea fx:id="outputField" layoutX="287.0" layoutY="376.0" prefHeight="290.0" prefWidth="467.0" wrapText="true" />
+                  <Text layoutX="288.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="output text">
+                     <font>
+                        <Font name="Ubuntu Light" size="22.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="641.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="key">
+                     <font>
+                        <Font name="Ubuntu Light" size="22.0" />
+                     </font>
+                  </Text>
+                  <Spinner fx:id="keySpinner" layoutX="687.0" layoutY="341.0" prefHeight="24.0" prefWidth="67.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Breaking">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="referenceTextArea" layoutX="274.0" layoutY="67.0" prefHeight="741.0" prefWidth="222.0" wrapText="true" />
+                  <Text layoutX="36.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ciphertext">
+                     <font>
+                        <Font name="Ubuntu Light" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="274.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reference text">
+                     <font>
+                        <Font name="Ubuntu Light" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="516.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Probable key :">
+                     <font>
+                        <Font name="Ubuntu Light" size="22.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="runWithThisKeyBtn" layoutX="883.0" layoutY="305.0" mnemonicParsing="false" text="Run with this key" />
+                  <TextArea fx:id="resultOutputArea" layoutX="516.0" layoutY="381.0" prefHeight="427.0" prefWidth="498.0" wrapText="true" />
+                  <Text layoutX="516.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Analysis">
+                     <font>
+                        <Font name="Ubuntu Light" size="22.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="515.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Result">
+                     <font>
+                        <Font name="Ubuntu Light" size="22.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="saveToFileBtn" layoutX="921.0" layoutY="342.0" mnemonicParsing="false" text="Save to file" />
+                  <Spinner fx:id="keySpinnerBreak" layoutX="661.0" layoutY="305.0" prefHeight="24.0" prefWidth="67.0" />
+                  <Button fx:id="startAnalysisBtn" layoutX="906.0" layoutY="38.0" mnemonicParsing="false" text="Start analysis" />
+                  <TableView fx:id="ciphertextTable" layoutX="516.0" layoutY="106.0" prefHeight="184.0" prefWidth="240.0">
+                    <columns>
+                      <TableColumn fx:id="letterClmnCT" prefWidth="75.0" text="Letter" />
+                      <TableColumn fx:id="freqClmnCT" prefWidth="75.0" text="Frequency" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Text layoutX="516.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ciphertext">
+                     <font>
+                        <Font name="Ubuntu Light" size="22.0" />
+                     </font>
+                  </Text>
+                  <TableView fx:id="referenceTextTable" layoutX="773.0" layoutY="106.0" prefHeight="184.0" prefWidth="240.0">
+                     <columns>
+                        <TableColumn fx:id="letterClmnRT" prefWidth="75.0" text="Letter" />
+                        <TableColumn fx:id="freqClmnRT" prefWidth="75.0" text="Frequency" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Text layoutX="773.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reference text">
+                     <font>
+                        <Font name="Ubuntu Light" size="22.0" />
+                     </font>
+                  </Text>
+                  <TextArea fx:id="ciphertextArea" layoutX="36.0" layoutY="67.0" prefHeight="741.0" prefWidth="222.0" wrapText="true" />
+                  <Button fx:id="fromFileToCTBtn" layoutX="182.0" layoutY="37.0" mnemonicParsing="false" text="From file" />
+                  <Button fx:id="fromFileToRTBtn" layoutX="420.0" layoutY="38.0" mnemonicParsing="false" text="From file" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+   </tabs>
+</TabPane>
